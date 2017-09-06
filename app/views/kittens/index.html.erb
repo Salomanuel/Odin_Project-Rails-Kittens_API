@@ -14,3 +14,9 @@
 	<li>☐</li>
 
 </ol>
+
+<ol>
+	<% @kittens.each do |cat| %>
+		<li><%= link_to cat.name, cat %></li>
+	<% end %>
+</ol>

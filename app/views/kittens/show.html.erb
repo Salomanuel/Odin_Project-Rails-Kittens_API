@@ -1,1 +1,20 @@
-<h1>Show Kitten</h1>
+<h1><%= @kitten.name %>'s page</h1>
+
+<table>
+	<tr>
+		<th>age</th>
+		<td><%= @kitten.age 		 %></td>
+	</tr>
+	<tr>
+		<th>cuteness</th>
+		<td><%= @kitten.cuteness %></td>
+	</tr>
+	<tr>		
+		<th>softness</th>
+		<td><%= @kitten.softness %></td>
+	</tr>
+</table>
+
+<%= link_to "<< all kittens", kittens_path %>
+<%= link_to "edit",	 '#' %>
+<%= link_to "delete", '#' %>
