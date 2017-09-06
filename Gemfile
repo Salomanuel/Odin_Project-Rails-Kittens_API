@@ -34,6 +34,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'faker'     # generate awesome stuff
 gem 'pry-rails' # fix IRB
+gem 'bootstrap-sass' # nice css
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
