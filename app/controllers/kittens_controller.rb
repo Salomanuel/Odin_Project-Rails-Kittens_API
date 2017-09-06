@@ -16,7 +16,6 @@ class KittensController < ApplicationController
 	def create
 		@kitten  = Kitten.new(kitten_params)
 		if @kitten.save
-			# render inline: "<h1>ok</h1>"
 			redirect_to @kitten
 		else
 			render inline: "<h1>oh no</h1>"
@@ -35,6 +34,12 @@ class KittensController < ApplicationController
 		else
 			render inline: "<h1>oh no</h1>"
 		end
+	end
+
+	def destroy
+		@kitten  = Kitten.find(params[:id])
+		@kitten.delete
+		redirect_to kittens_path
 	end
 
 	private
