@@ -8,8 +8,8 @@
 	<li>☑</li>
 	<li>☑</li>
 	<li>☑</li>
-	<li>☐</li>
-	<li>☐</li>
+	<li>☑</li>
+	<li>☑</li>
 	<li>☐</li>
 	<li>☐</li>
 
@@ -21,7 +21,10 @@
 
 <ol>
 	<% @kittens.each do |cat| %>
-		<li><%= link_to cat.name, cat %></li>
+		<li>
+			<%= link_to cat.name, cat %>
+			<%= link_to "kill",   cat, method: :delete %>			
+		</li>
 	<% end %>
 </ol>
 
