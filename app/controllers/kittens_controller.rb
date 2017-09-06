@@ -10,13 +10,27 @@ class KittensController < ApplicationController
 
 	def new
 		@kitten  = Kitten.new
-		@scale   = (1..10).to_a.map { |i| [i, i] }
+		@scale   = (1..10).to_a
 	end
 
 	def create
 		@kitten  = Kitten.new(kitten_params)
 		if @kitten.save
 			# render inline: "<h1>ok</h1>"
+			redirect_to @kitten
+		else
+			render inline: "<h1>oh no</h1>"
+		end
+	end
+
+	def edit
+		@kitten  = Kitten.find(params[:id])
+		@scale   = (1..10).to_a
+	end
+
+	def update
+		@kitten  = Kitten.find(params[:id])
+		if @kitten.update(kitten_params)
 			redirect_to @kitten
 		else
 			render inline: "<h1>oh no</h1>"
