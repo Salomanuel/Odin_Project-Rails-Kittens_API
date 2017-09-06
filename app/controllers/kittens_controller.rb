@@ -10,7 +10,6 @@ class KittensController < ApplicationController
 
 	def new
 		@kitten  = Kitten.new
-		@scale   = (1..10).to_a
 	end
 
 	def create
@@ -25,7 +24,6 @@ class KittensController < ApplicationController
 
 	def edit
 		@kitten  = Kitten.find(params[:id])
-		@scale   = (1..10).to_a
 	end
 
 	def update
@@ -34,7 +32,7 @@ class KittensController < ApplicationController
 			flash[:success] = "Kitten succesfully edited"
 			redirect_to @kitten
 		else
-			render inline: "<h1>oh no</h1>"
+			render :edit
 		end
 	end
 
