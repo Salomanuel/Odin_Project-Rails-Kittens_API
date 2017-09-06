@@ -16,6 +16,7 @@ class KittensController < ApplicationController
 	def create
 		@kitten  = Kitten.new(kitten_params)
 		if @kitten.save
+			flash[:success] = "Kitten succesfully created"
 			redirect_to @kitten
 		else
 			render inline: "<h1>oh no</h1>"
@@ -30,6 +31,7 @@ class KittensController < ApplicationController
 	def update
 		@kitten  = Kitten.find(params[:id])
 		if @kitten.update(kitten_params)
+			flash[:success] = "Kitten succesfully edited"
 			redirect_to @kitten
 		else
 			render inline: "<h1>oh no</h1>"
@@ -39,6 +41,7 @@ class KittensController < ApplicationController
 	def destroy
 		@kitten  = Kitten.find(params[:id])
 		@kitten.delete
+		flash[:success] = "Kitten succesfully killed"
 		redirect_to kittens_path
 	end
 
