@@ -15,6 +15,10 @@
 
 </ol>
 
+<h2><%= link_to 'new kitten', new_kitten_path %></h2>
+
+<h2>kittens list</h2>
+
 <ol>
 	<% @kittens.each do |cat| %>
 		<li><%= link_to cat.name, cat %></li>
