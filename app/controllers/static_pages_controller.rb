@@ -1,8 +1,9 @@
 class StaticPagesController < ApplicationController
+	include FlickrHelper
 	def form
 		if params[:name]
 			@user   = params[:name]
-			@photos = flickr.photos.search(:user_id => 'Salomanuel')
+			@photos = user_photos(@user)
 		end
 	end
 end

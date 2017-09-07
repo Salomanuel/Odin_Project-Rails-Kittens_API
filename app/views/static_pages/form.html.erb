@@ -1,4 +1,5 @@
-<h1>Form</h1>
+<h1>Search Images on Flickr</h1>
+<p>the form is slow because Flickr's API is not incredibly fast, so have some patience</p>
 
 <%= form_tag('/form', method: :get) do %>
 		<%= label_tag(:name) %>
@@ -7,8 +8,14 @@
 <% end %>
 
 <% if @user %>
-	there is a User! His name is <%= @user %>
-<% else %>
-	no user
+	<p>displaying pictures for user <strong><%= @user %></strong></p>
+	<% @photos.each do |p| %>
+		<%= link_to(image_tag(get_url(p),
+							:class 	=> 'flickr_photo', 
+							:title 	=> p.title, 
+							:border => 0, 
+							:size 	=> '200'),
+						 get_url(p)) %>
+	<% end %>
 <% end %>
 <br>
