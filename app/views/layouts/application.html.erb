@@ -15,8 +15,6 @@
 			</div>
   	<% end %>
     <%= yield %>
-    <% cache ("flickr_sidebar") do %>
-      <%= render_flickr_sidebar_widget('28439801@N02') %>
-    <% end %>
+    <%= link_to "HOME", root_path %>
   </body>
 </html>
