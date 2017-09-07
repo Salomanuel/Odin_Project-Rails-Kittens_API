@@ -1,0 +1,4 @@
+flickr.photos.search(:user_id => 'Salomanuel')
+
+
+FlickRaw.url(flickr.photos.getInfo(:photo_id => photos[0].id))
