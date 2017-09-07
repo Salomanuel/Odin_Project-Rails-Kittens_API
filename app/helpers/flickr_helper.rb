@@ -14,8 +14,8 @@ module FlickrHelper
 		begin
 			photos = user_photos(user_id, photo_count).in_groups_of(columns)
 			render :partial => '/flickr/sidebar_widget', :locals => { :photos => photos }
-		# rescue Exception
-			# render :partial => '/flickr/unavailable'
+		rescue Exception
+			render :partial => '/flickr/unavailable'
 		end
 	end
 
