@@ -36,6 +36,7 @@ gem 'faker'     # generate awesome stuff
 gem 'pry-rails' # fix IRB
 gem 'bootstrap-sass' # nice css
 gem 'rest-client'
+gem 'flickraw'  # to talk with Flickr
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
