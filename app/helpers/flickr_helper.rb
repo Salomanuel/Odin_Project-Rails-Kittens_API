@@ -1,8 +1,12 @@
 module FlickrHelper
-	def user_photos(user_id, photo_count = 12)
+	def setup
 		data = YAML.load_file("config/flickr.yml")
 		FlickRaw.api_key 			 = data["key"]
 		FlickRaw.shared_secret = data["secret"]
+	end
+
+	def user_photos(user_id, photo_count = 12)
+		setup
 		flickr.photos.search(:user_id => user_id).first(photo_count)
 	end
 
@@ -19,4 +23,12 @@ module FlickrHelper
 		end
 	end
 
+	def user_exists?(user)
+		setup
+		begin
+			flickr.people.findByUsername(username: user) 
+		rescue
+			false
+		end
+	end
 end
