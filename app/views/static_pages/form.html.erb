@@ -10,7 +10,7 @@
 <% if @user %>
 	<% if user_exists?(@user) %>
 		<p>displaying pictures for user <strong><%= @user %></strong></p>
-		<% @photos.each do |p| %>
+		<% user_photos(@user).each do |p| %>
 			<%= link_to(image_tag(get_url(p),
 								:class 	=> 'flickr_photo', 
 								:title 	=> p.title, 
